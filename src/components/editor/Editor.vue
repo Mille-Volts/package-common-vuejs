@@ -44,8 +44,6 @@
 </style>
 
 <style type="text/less" lang="less" scoped>
-  @import "../../less/colors";
-
   .ql-container {
   }
 
@@ -54,7 +52,7 @@
   }
 
   .ql-toolbar.ql-snow {
-    background: @gray-lighter;
+    background: #eee;
   }
 
   .ql-container.ql-snow {
@@ -63,7 +61,7 @@
 
   .editor.disabled {
     .ql-container.ql-snow {
-      background: @gray-lighter;
+      background: #eee;
       opacity: 0.67;
     }
     .ql-toolbar {

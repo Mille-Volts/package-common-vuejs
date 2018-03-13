@@ -19,9 +19,7 @@ export function install(Vue) {
 }
 
 // Expose the components
-export {
-  /* -- Add more components here -- */
-};
+export /* -- Add more components here -- */{};
 
 /* -- Plugin definition & Auto-install -- */
 /* You shouldn't have to modify the code below */

@@ -30,6 +30,21 @@
   .input-group {
     margin: 0 auto;
   }
+  .btn-file {
+    cursor: pointer;
+    * {
+      cursor: pointer;
+    }
+  }
+  .btn-file input[type=file] {
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 </style>
 
 <script>

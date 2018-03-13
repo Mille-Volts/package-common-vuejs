@@ -45,7 +45,7 @@ $(function() {
     ) {
       var target = $(this.hash),
         headerHeight = $('#navbar-second').height() + 5; // Get fixed header height
-      headerHeight += $('.sticky-header').height() || 0;
+      headerHeight += $('.sticky-header').height() || 0;
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         $('html,body').animate(
