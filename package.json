@@ -1,13 +1,17 @@
 {
   "name": "package-common-vuejs",
   "description": "Composants génériques Vue.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "author": {
     "name": "Nicolas Raynaud",
     "email": "nicolas.raynaud@1000volts.fr"
   },
-  "keywords": ["vue", "vuejs", "plugin"],
+  "keywords": [
+    "vue",
+    "vuejs",
+    "plugin"
+  ],
   "license": "MIT",
   "main": "src/index.js",
   "unpkg": "dist/package-common-vuejs.browser.js",
