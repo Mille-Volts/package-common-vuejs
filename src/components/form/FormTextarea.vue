@@ -9,15 +9,16 @@
 </style>
 
 <script>
-  export default {
-    props: ['value'],
-    methods: {
-      onInput($evt) {
-        this.$emit('input', $evt.target.value);
-      },
-      onChange($evt) {
-        this.$emit('change', $evt.target.value);
-      },
+export default {
+  props: ["value"],
+
+  methods: {
+    onInput($evt) {
+      this.$emit("input", $evt.target.value);
     },
-  };
+    onChange($evt) {
+      this.$emit("change", $evt.target.value);
+    }
+  }
+};
 </script>

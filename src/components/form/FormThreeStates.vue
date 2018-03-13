@@ -27,7 +27,7 @@
         return (this.model === true? 'btn-primary active': 'btn-default') + (this.disabled? ' disabled': '');
       },
       noClasses() {
-        return this.model === false? 'btn-primary active': 'btn-default' + (this.disabled? ' disabled': '');;
+        return this.model === false? 'btn-primary active': 'btn-default' + (this.disabled? ' disabled': '');
       },
     },
     methods: {
