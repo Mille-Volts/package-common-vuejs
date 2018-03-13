@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "extends": ["plugin:vue-libs/recommended", "prettier", "prettier/standard"],
+  "plugins": ["prettier", "html"],
+  "env": {
+    "browser": true
+  }
+}

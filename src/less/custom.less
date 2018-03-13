@@ -1,0 +1,19 @@
+
+.table.align-top {
+  > thead,
+  > tbody,
+  > tfoot {
+	> tr {
+	  > th,
+	  > td {
+		vertical-align: top;
+		&.align-middle {
+		  vertical-align: middle;
+		}
+		&.align-bottom {
+		  vertical-align: bottom;
+		}
+	  }
+	}
+  }
+}
