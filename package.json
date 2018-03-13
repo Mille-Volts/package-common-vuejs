@@ -17,7 +17,7 @@
   "unpkg": "dist/package-common-vuejs.browser.js",
   "module": "index.js",
   "scripts": {
-    "postversion": "npm run lint && git add *",
+    "postversion": "npm run lint && git add package*",
     "lint": "eslint --ext=.vue src",
     "lint:fix": "npm run lint -- --fix"
   },
