@@ -40,7 +40,7 @@
 </template>
 
 <style type="text/css" lang="css">
-  @import "../../../node_modules/quill/dist/quill.snow.css";
+  @import "~/node_modules/quill/dist/quill.snow.css";
 </style>
 
 <style type="text/less" lang="less" scoped>
