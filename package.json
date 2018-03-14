@@ -1,7 +1,7 @@
 {
   "name": "package-common-vuejs",
   "description": "Composants génériques Vue.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "author": {
     "name": "Nicolas Raynaud",
