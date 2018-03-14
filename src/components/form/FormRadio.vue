@@ -1,7 +1,7 @@
 <template>
   <div class="radio" :class="{disabled: !!disabled}">
     <label>
-      <input ref="radio" v-model="model" :value="value" type="radio" :disabled="disabled" v-bind="$attrs"/>
+      <input ref="radio" v-model="model" :value="value" type="radio" :disabled="disabled" />
       <slot></slot>
     </label>
   </div>

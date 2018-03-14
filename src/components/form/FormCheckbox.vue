@@ -1,7 +1,7 @@
 <template>
   <div class="checkbox" :class="{disabled: !!disabled}">
     <label>
-      <input ref="checkbox" v-model="model" :value="value" type="checkbox" :disabled="disabled" v-bind="$attrs"/>
+      <input ref="checkbox" v-model="model" :value="value" type="checkbox" :disabled="disabled"/>
       <slot></slot>
     </label>
   </div>
