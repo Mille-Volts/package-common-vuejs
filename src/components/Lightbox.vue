@@ -5,7 +5,7 @@
 </template>
 
 <style type="text/css" lang="css">
-  @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+  @import "~@fancyapps/fancybox/dist/jquery.fancybox.min.css";
 </style>
 
 <script>
