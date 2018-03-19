@@ -1,5 +1,5 @@
 <template>
-  <div class="multi-select-full">
+  <div class="multi-select-full" :class="`multi-select-${this.multiple? 'multiple': 'single'}`">
     <select ref="select" :value="value" :multiple="multiple" :required="required" :disabled="disabled" @change="onChange" v-bind="$attrs">
       <slot></slot>
       <option v-if="options" v-for="option in options"
@@ -12,6 +12,10 @@
 <style type="text/less" lang="less">
   @import "../../less/_global/global.less";
   @import "../../less/components/plugins/forms/menus/multiselect.less";
+
+  .multi-select-full select {
+    width: 100% !important;
+  }
 </style>
 
 <script>
@@ -31,7 +35,8 @@
       filter: Boolean,
       selectAll: Boolean,
       filterPlaceholder: {type: String, default: 'Recherche...'},
-      emptyValue: {type: [String, Array], default: null}
+      emptyValue: {type: [String, Array], default: null},
+      parameters: Object,
     },
     computed: {
       params() {
@@ -50,6 +55,7 @@
             filter: '<li class="multiselect-item multiselect-filter"><i class="icon-search4"></i> <input class="form-control" type="text"></li>'
           },
           filterPlaceholder: this.filterPlaceholder,
+          ...this.parameters,
         };
       },
     },
@@ -61,14 +67,6 @@
           $.uniform.update();
         },
         onChange: () => {
-          $.uniform.update();
-          this.onChange();
-        },
-        onSelectAll: () => {
-          $.uniform.update();
-          this.onChange();
-        },
-        onDeselectAll: () => {
           $.uniform.update();
           this.onChange();
         },
