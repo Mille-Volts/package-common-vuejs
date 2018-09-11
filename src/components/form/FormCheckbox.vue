@@ -25,10 +25,8 @@ export default {
       get() {
         return this.m;
       },
-      set(val) {
-        const value = val ? this.value : false;
+      set(value) {
         this.$emit("input", value);
-        this.$emit("change", value);
       }
     }
   },
