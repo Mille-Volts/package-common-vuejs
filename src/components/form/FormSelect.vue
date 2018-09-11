@@ -11,73 +11,79 @@
 </template>
 
 <style type="text/less" lang="less">
-  @import "../../less/_global/global.less";
-  @import "../../less/components/plugins/forms/menus/bootstrap-select.less";
+@import "../../less/_global/global.less";
+@import "../../less/components/plugins/forms/menus/bootstrap-select.less";
 </style>
 
 <script>
-  import $ from 'jquery';
+import $ from "jquery";
 
-  export default {
-    props: {
-      value: [String, Array],
-      placeholder: String,
-      options: [Object, Array],
-    },
-    computed: {
-      optionsGroups() {
-        if (!this.options) return null;
-        if (Array.isArray(this.options)) {
-          return this.options.map(({label, group, disabled, children, options}) => ({
-            label: (label || group),
+export default {
+  props: {
+    value: [String, Array],
+    placeholder: String,
+    options: [Object, Array]
+  },
+  computed: {
+    optionsGroups() {
+      if (!this.options) return null;
+      if (Array.isArray(this.options)) {
+        return this.options
+          .map(({ label, group, disabled, children, options }) => ({
+            label: label || group,
             disabled,
-            children: this.getOptionsAsArray(children || options),
-          })).filter(this.isValidGroup);
-        }
-        const groupLabels = Object.keys(this.options);
-        return groupLabels.map(label => ({
+            children: this.getOptionsAsArray(children || options)
+          }))
+          .filter(this.isValidGroup);
+      }
+      const groupLabels = Object.keys(this.options);
+      return groupLabels
+        .map(label => ({
           label,
-          children: this.getOptionsAsArray(this.options[label]),
-        })).filter(this.isValidGroup);
-      },
-      optionsStandalone() {
-        if (!this.options) return null;
-        return this.getOptionsAsArray(this.options);
-      },
-      $select() {
-        return $(this.$refs.select);
-      },
+          children: this.getOptionsAsArray(this.options[label])
+        }))
+        .filter(this.isValidGroup);
     },
-    updated() {
-      // Forcing setting the value after options changed
-      this.$select.val(this.value);
+    optionsStandalone() {
+      if (!this.options) return null;
+      return this.getOptionsAsArray(this.options);
     },
-    methods: {
-      getOptionsAsArray(options) {
-        if (!options) return [];
-        if (typeof(options) === 'string') return [];
-        if (Array.isArray(options)) {
-          return options.map(({label, text, name, title, value, id, disabled}) => ({
-            label: (label || name || title || text || value || id),
-            value: (value || id),
-            disabled,
-          }));
-        }
-        const values = Object.keys(options);
-        return values.map(value => ({
-          label: options[value],
-          value,
-        }));
-      },
-      isValidGroup({label, children}) {
-        return !!label && !!children && children.length;
-      },
-      onChange(evt) {
-        this.$emit('change', evt.target.value);
-      },
-      onInput(evt) {
-        this.$emit('input', evt.target.value);
-      },
+    $select() {
+      return $(this.$refs.select);
     }
-  };
+  },
+  updated() {
+    // Forcing setting the value after options changed
+    this.$select.val(this.value);
+  },
+  methods: {
+    getOptionsAsArray(options) {
+      if (!options) return [];
+      if (typeof options === "string") return [];
+      if (Array.isArray(options)) {
+        return options.map(
+          ({ label, text, name, title, value, id, disabled }) => ({
+            label: label || name || title || text || value || id,
+            value: value || id,
+            disabled
+          })
+        );
+      }
+      const values = Object.keys(options);
+      return values.map(value => ({
+        label: options[value],
+        value
+      }));
+    },
+    isValidGroup({ label, children }) {
+      return !!label && !!children && children.length;
+    },
+    onChange(evt) {
+      this.$emit("change", evt.target.value);
+    },
+    onInput(evt) {
+      this.$emit("input", evt.target.value);
+    }
+  }
+};
 </script>
