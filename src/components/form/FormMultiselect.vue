@@ -85,7 +85,7 @@ export default {
         this.onChange();
       }
     });
-    this.rebuild(true);
+    this.firstBuild();
     // $select.multiselect("select", this.value || (this.multiple ? [] : null));
     // $(this.$el)
     //   .find("input")
@@ -115,24 +115,29 @@ export default {
     $(this.$refs.select).multiselect("destroy");
   },
   methods: {
-    rebuild: _debounce(function(first = false) {
+    firstBuild() {
       const $select = $(this.$refs.select);
-      if (!first) {
-        const doRebuild = this.options
-          ? !this._previousOptions || this._previousOptions !== this.options
-          : !this._previousChildren ||
-            this._previousChildren.length !== this.$slots.default.length;
-        if (doRebuild) {
-          $select.multiselect("rebuild");
-          this._previousOptions = this.options;
-          this._previousChildren = this.$slots.default;
-        }
+      $select.multiselect("select", this.value || (this.multiple ? [] : null));
+      $(this.$el)
+        .find("input")
+        .uniform({ radioClass: "choice" });
+    },
+    rebuild() {
+      const $select = $(this.$refs.select);
+      const doRebuild = this.options
+        ? !this._previousOptions || this._previousOptions !== this.options
+        : !this._previousChildren ||
+          this._previousChildren.length !== this.$slots.default.length;
+      if (doRebuild) {
+        $select.multiselect("rebuild");
+        this._previousOptions = this.options;
+        this._previousChildren = this.$slots.default;
       }
       $select.multiselect("select", this.value || (this.multiple ? [] : null));
       $(this.$el)
         .find("input")
         .uniform({ radioClass: "choice" });
-    }, 50),
+    },
     onChange() {
       const value = $(this.$refs.select).val();
       this.$emit("input", value);
